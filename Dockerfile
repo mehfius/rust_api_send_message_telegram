@@ -1,4 +1,3 @@
-# Base image for whisper.cpp
 FROM debian:bullseye
 RUN apt-get update && apt-get install -y \
     ca-certificates \
