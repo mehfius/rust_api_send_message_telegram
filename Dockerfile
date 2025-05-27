@@ -1,11 +1,13 @@
-FROM debian:bullseye
-RUN apt-get update && apt-get install -y \
-    ca-certificates \
-    && update-ca-certificates \    
-    && rm -rf /var/lib/apt/lists/*
+FROM docker.io/mehfius/rust-ngrok
+WORKDIR /app
 
-COPY target/release/rust_api_send_message_telegram /usr/local/bin/
+COPY target/release/$API_NAME ./$API_NAME
+COPY entrypoint.sh ./entrypoint.sh
 
-EXPOSE 7000
+RUN chmod +x ./$API_NAME
+RUN chmod +x ./entrypoint.sh
 
-CMD ["rust_api_send_message_telegram"]
+EXPOSE $PORT
+
+ENTRYPOINT ["./entrypoint.sh"]
+CMD []
