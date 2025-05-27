@@ -7,3 +7,4 @@
 *.lock
 /models/
 .env
+.docker-compose.yml
