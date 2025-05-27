@@ -2,7 +2,7 @@ FROM docker.io/mehfius/rust-ngrok
 WORKDIR /app
 
 COPY target/release/$API_NAME ./$API_NAME
-RUN ls -l /app 
+
 COPY entrypoint.sh ./entrypoint.sh
 
 RUN chmod +x ./$API_NAME
