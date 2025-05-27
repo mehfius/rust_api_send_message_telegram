@@ -1,0 +1,9 @@
+/target/
+!/target/
+/target/*
+!/target/release/
+/target/release/*
+!/target/release/rust_api_send_message_telegram
+*.lock
+/models/
+.env
